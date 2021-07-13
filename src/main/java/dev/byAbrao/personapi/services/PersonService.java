@@ -3,6 +3,7 @@ package dev.byAbrao.personapi.services;
 import dev.byAbrao.personapi.dto.request.PersonDTO;
 import dev.byAbrao.personapi.dto.response.MessageResponseDTO;
 import dev.byAbrao.personapi.entities.Person;
+import dev.byAbrao.personapi.exceptions.PersonNotFoundException;
 import dev.byAbrao.personapi.mapper.PersonMapper;
 import dev.byAbrao.personapi.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,11 @@ public class PersonService {
         return allPeople.stream()
                 .map(personMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public PersonDTO findById(Long id) throws PersonNotFoundException {
+        Person person = personRepository.findById(id)
+                .orElseThrow(() -> new PersonNotFoundException(id));
+        return personMapper.toDTO(person);
     }
 }

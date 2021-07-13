@@ -1,4 +1,4 @@
-package dev.byAbrao.personapi.entity;
+package dev.byAbrao.personapi.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

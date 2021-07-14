@@ -12,6 +12,12 @@ http://localhost:8080/api/v1/people
 ```
 
 
+<h3>Heroku address:</h3>
+
+```
+https://people-api-java-dio.herokuapp.com/api/v1/people
+```
+
 <h3>Tools</h3>        
 
  *  _Java 11_  
